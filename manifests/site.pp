@@ -1,6 +1,7 @@
 node default {
   file {'/root/README':
-    ensure => file,
-    content => 'This is a readme file for puppet.'
+    ensure  => file,
+    content => 'This is a readme file for puppet.',
+    owner   => 'root'
   }
 }
