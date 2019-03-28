@@ -10,4 +10,8 @@ class minecraft (
         ensure => file,
         source => $url,
     }
+    file {"${install_dir}/eula.txt":
+    ensure => file,
+    content => ‘eula=true’
+    }
 }
