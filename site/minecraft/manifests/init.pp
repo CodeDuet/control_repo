@@ -11,7 +11,7 @@ class minecraft (
     before => Service['minecraft'],
   }
   package {‘java’:
-    ensure => present,
+    ensure => installed,
   }
   file {"${install_dir}/eula.txt":
     ensure => file,
