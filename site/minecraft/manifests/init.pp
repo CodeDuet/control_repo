@@ -13,6 +13,6 @@ class minecraft (
     file {"${install_dir}/eula.txt":
     ensure => present,
     replace => 'yes',
-    content => ‘eula=true’
+    content => "eula=true"
     }
 }
