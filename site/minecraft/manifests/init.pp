@@ -10,10 +10,6 @@ class minecraft (
     source      => $url,
     before => Service['minecraft'],
   }
-  file {"${install_dir}/eula.txt":
-    ensure => file,
-    content => ‘eula=true’
-  }
   file {‘/etc/systemd/system/minecraft.service’:
     ensure => file,
     source => ‘puppet:///modules/minecraft/minecraft.service’,
@@ -22,5 +18,9 @@ class minecraft (
     ensure => running,
     enable => true,
     require => [File["${install_dir}/eula.txt"],File[‘/etc/systemd/system/minecraft.service’]],
+  }
+  file {"${install_dir}/eula.txt":
+    ensure => file,
+    content => ‘eula=true’
   }
 }
