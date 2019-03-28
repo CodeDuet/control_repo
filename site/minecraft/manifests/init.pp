@@ -9,10 +9,5 @@ class minecraft (
     file {"${install_dir}/server.jar":
         ensure => file,
         source => $url,
-        before => Service['minecraft'],
-    }
-    file {"${install_dir}/eula.txt":
-        ensure => file,
-        content => ‘eula=true’
     }
 }
