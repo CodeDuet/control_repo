@@ -8,6 +8,7 @@ class minecraft (
     file {"${install_dir}/minecraft_server.jar":
         ensure => file,
         source => $url,
+        before => Service['minecraft'],
     }
     file {"${install_dir}/eula.txt":
     ensure => present,
@@ -21,5 +22,6 @@ class minecraft (
     service { 'minecraft':
       ensure => running,
       enable => true,
+      require => [File["${install_dir}/minecraft_server.jar"],File['/etc/systemd/system/minecraft.service']],
   }
 }
